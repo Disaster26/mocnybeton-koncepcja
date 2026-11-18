@@ -32,7 +32,7 @@
     if(nav){var bs=nav.querySelectorAll('button');
       bs.forEach(function(b){b.addEventListener('click',function(){tor.scrollBy({left:step()*(+b.dataset.k),behavior:'smooth'})})});
       function upd(){bs[0].disabled=tor.scrollLeft<4;bs[1].disabled=tor.scrollLeft+tor.clientWidth>=tor.scrollWidth-4;nav.hidden=tor.scrollWidth<=tor.clientWidth+2}
-      tor.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+      tor.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);requestAnimationFrame(function(){setTimeout(upd,0)});
     }
   });
 
